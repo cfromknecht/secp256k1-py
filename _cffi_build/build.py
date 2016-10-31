@@ -87,7 +87,4 @@ if ffi is None:
 
     # By default we only build with recovery enabled since the other modules
     # are experimental
-    if os.environ.get('SECP_BUNDLED_EXPERIMENTAL'):
-        ffi = _mk_ffi(_base + list(_modules.values()), libraries=['secp256k1'])
-    else:
-        ffi = _mk_ffi(_base + [_modules['recovery']], libraries=['secp256k1'])
+    ffi = _mk_ffi(_base + list(_modules.values()), libraries=['secp256k1'])

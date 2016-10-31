@@ -200,13 +200,12 @@ class build_clib(_build_clib):
         else:
             cmd.extend(["--without-bignum"])
 
-        if os.environ.get('SECP_BUNDLED_EXPERIMENTAL'):
-            log.info("Building experimental")
-            cmd.extend([
-                "--enable-experimental",
-                "--enable-module-ecdh",
-                "--enable-module-schnorr",
-            ])
+        log.info("Building experimental")
+        cmd.extend([
+            "--enable-experimental",
+            "--enable-module-ecdh",
+            "--enable-module-schnorr",
+        ])
 
         log.debug("Running configure: {}".format(" ".join(cmd)))
         subprocess.check_call(
